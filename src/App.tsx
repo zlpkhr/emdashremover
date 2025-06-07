@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/next"
 import "./App.css";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <div className="card">
+      <Analytics />
       <h1>Em Dash Remover</h1>
       <p className="subtitle">
         Stay hidden from AI detection and don't embarrass yourself.
