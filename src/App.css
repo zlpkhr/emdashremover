@@ -132,8 +132,9 @@ table {
   box-sizing: border-box;
 }
 
-/* Global Styles */
+/* Global Styles with CSS Variables */
 :root {
+  /* Font & Base */
   font-family:
     system-ui,
     -apple-system,
@@ -148,12 +149,38 @@ table {
     sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #213547;
-  background-color: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Light Theme Colors */
+  --color-background: #ffffff;
+  --color-text: #213547;
+  --color-card-background: #ffffff;
+  --color-card-border: #e0e0e0;
+  --color-subtitle: #666;
+  --color-border: #ccc;
+  --color-preview-background: #f8f8f8;
+  --color-button-background: #f9f9f9;
+  --color-button-hover-border: #646cff;
+  --color-success: #008000;
+  --color-preview-title: #444;
+}
+
+html.dark {
+  /* Dark Theme Colors */
+  --color-background: #1a1a1a;
+  --color-text: rgba(255, 255, 255, 0.87);
+  --color-card-background: #2a2a2a;
+  --color-card-border: #4d4d4d;
+  --color-subtitle: #a0a0a0;
+  --color-border: #555;
+  --color-preview-background: #222222;
+  --color-button-background: #3a3a3a;
+  --color-button-hover-border: #646cff;
+  --color-success: #33cc33;
+  --color-preview-title: #bbb;
 }
 
 body {
@@ -162,6 +189,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 h1 {
@@ -169,25 +198,6 @@ h1 {
   line-height: 1.1;
   word-break: break-word;
   margin-bottom: 0.5em;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #f9f9f9;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 /* App-specific Styles */
@@ -201,14 +211,14 @@ button:focus-visible {
 
 .card {
   padding: 2em;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--color-card-border);
   border-radius: 12px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  background-color: var(--color-card-background);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .subtitle {
-  color: #666;
+  color: var(--color-subtitle);
   margin-top: 0;
   margin-bottom: 2em;
 }
@@ -217,7 +227,7 @@ textarea {
   padding: 10px;
   width: 100%;
   height: 200px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   font-family: inherit;
   font-size: 1rem;
@@ -225,6 +235,8 @@ textarea {
   white-space: pre-wrap;
   word-wrap: break-word;
   resize: vertical;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 .preview-title {
@@ -233,16 +245,16 @@ textarea {
   font-size: 1em;
   font-weight: bold;
   text-align: left;
-  color: #444;
+  color: var(--color-preview-title);
 }
 
 .preview-area {
   width: 100%;
   margin-top: 0.5rem;
   padding: 10px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--color-card-border);
   border-radius: 8px;
-  background-color: #f8f8f8;
+  background-color: var(--color-preview-background);
   text-align: left;
   line-height: 1.5;
   white-space: pre-wrap;
@@ -265,7 +277,7 @@ textarea {
 
 .helper-text {
   margin-top: 1rem;
-  color: #008000;
+  color: var(--color-success);
   font-weight: bold;
 }
 
