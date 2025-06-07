@@ -290,3 +290,19 @@ textarea {
     font-size: 2.2em;
   }
 }
+
+.app-footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.app-footer a {
+  color: var(--color-subtitle);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
+  color: var(--color-text);
+}
