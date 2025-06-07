@@ -1,35 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useMemo } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [text, setText] = useState("");
+  const [removedCount, setRemovedCount] = useState(0);
+
+  const handleRemoveEmDashes = () => {
+    const emDashCount = (text.match(/—/g) || []).length;
+    const newText = text.replace(/—/g, "-");
+    setText(newText);
+    setRemovedCount(emDashCount);
+  };
+
+  const highlightedText = useMemo(() => {
+    return text
+      .replace(/\n/g, "<br/>")
+      .replace(/—/g, '<span class="highlight">—</span>');
+  }, [text]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+    <div className="card">
+      <h1>Em Dash Remover</h1>
+      <p className="subtitle">
+        Stay hidden from AI detection and don't embarrass yourself.
       </p>
-    </>
-  )
+
+      <textarea
+        value={text}
+        onChange={(e) => {
+          setText(e.target.value);
+          setRemovedCount(0);
+        }}
+        placeholder="Paste your text here..."
+        rows={10}
+      />
+
+      {text && (
+        <>
+          <h3 className="preview-title">Live Highlight Preview</h3>
+          <div
+            className="preview-area"
+            dangerouslySetInnerHTML={{ __html: highlightedText }}
+          />
+        </>
+      )}
+
+      <button onClick={handleRemoveEmDashes}>Remove Em Dashes</button>
+
+      {removedCount > 0 && (
+        <p className="helper-text">
+          Success! Removed {removedCount} em dash{removedCount > 1 ? "es" : ""}
+        </p>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;

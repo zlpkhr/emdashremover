@@ -1,54 +1,27 @@
-# React + TypeScript + Vite
+# Em Dash Remover
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Are you tired of your writing being flagged by primitive AI detection tools? Do you lie awake at night, tormented by the shame of improper punctuation? Do you want to reclaim your textual freedom and ascend to a higher plane of literary existence?
 
-Currently, two official plugins are available:
+**Of course you do.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Introducing the **Em Dash Remover**, a revolutionary, open-source web application engineered to solve a problem you probably didn't even know you had. This isn't just a tool; it's a movement.
 
-## Expanding the ESLint configuration
+## Features That Will Change Your Life
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Flawless Em Dash Annihilation**: Obliterates every "—" (em dash) in your text and replaces it with a sleek, sophisticated "-" (hyphen).
+- **Stay Hidden from AI**: Our advanced, patent-pending\* replacement technology helps you fly under the radar of content scanners that flag sophisticated punctuation. Don't just write—write invisibly.
+- **Real-Time Highlighting**: Witness the enemy in real-time. Em dashes are highlighted with a menacing red background in the text area, so you know exactly what you're up against.
+- **Success Metrics**: A helpful counter displays exactly how many em dashes you've heroically vanquished.
+- **Blazing Fast & Beautifully Responsive**: Built with React and Vite for a seamless experience on any device.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+_\*Patent not actually pending._
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1.  Clone this repository.
+2.  Run `npm install` to install the required dependencies.
+3.  Run `npm run dev` to start the development server.
+4.  Open your browser and navigate to the local URL provided.
+5.  Paste your text, click the button, and change your life.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Stop embarrassing yourself. Start using the Em Dash Remover today.
